@@ -10,33 +10,33 @@
       
       switch (this.data.action) {
         case 'find-server':
-          
-          client.get('/servers', function(err, res) {
-            if (err) {
+          var serverName = this.data.name;
+          var configKey = this.name + ':' + this.target + ':server';
+          client.get('/servers').catch(function (err) {
               grunt.log.error(err);
               done(false);
-            } else {
+            })
+            .then(function(res) {
               var servers = res.body.servers;
               var server = null;
               
               for (var i = 0, l = servers.length; i < l; i++) {
                 var server = servers[i];
                 var name = server.name;
-                if (name == this.data.name) {
+                if (name == serverName) {
                   server = server;
                   break;
                 }
               }
               
               if (server) {
-                grunt.config.set(this.name + ':' + this.target + ':server', server);
+                grunt.config.set(configKey, server);
                 done();
               } else {
-                grunt.log.error('Could not find scaleway server by name ' + this.data.name);
+                grunt.log.error('Could not find scaleway server by name ' + serverName);
                 done(false);
               }
-            }
-          }.bind(this));
+            });
         break;
       }
       
