@@ -1,0 +1,27 @@
+{
+  "name": "grunt-scaleway",
+  "version": "0.0.1",
+  "description": "Grunt tasks for managing servers on Scaleway ",
+  "main": "tasks/scaleway.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Metatavu/grunt-scaleway.git"
+  },
+  "keywords": [
+    "grunt",
+    "scaleway"
+  ],
+  "author": "Metatavu Oy <devs@metatavu.fi>",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Metatavu/grunt-scaleway/issues"
+  },
+  "homepage": "https://github.com/Metatavu/grunt-scaleway#readme",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "scaleway": "^0.8.0"
+  }
+}
